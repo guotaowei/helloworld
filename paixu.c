@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+	int a[100],i,j,n,k;
+	printf("请输入要排序数值的个数（最多100个）：");
+	scanf("%d",&n);
+	if(n>100||n<1)
+		//判断n是否符合要求
+		printf("输入数值个数不对！");
+	else
+		printf("\n请输入要排序的数值（回车确定）：");
+		for(i=0;i<n;i++)
+			scanf("%d",&a[i]);
+		//把数值赋给数值a
+		for(i=0;i<n;i++)
+			for(j=i+1;j<n;j++)
+				if(a[i]>a[j])
+				{
+					k=a[i];
+					a[i]=a[j];
+					a[j]=k;
+				}
+				//顺序比较，排好序
+		printf("\n排序结果为：");
+		for(i=0;i<n;i++)
+			printf("%d\t",a[i]);
+		//输出结果
+}
