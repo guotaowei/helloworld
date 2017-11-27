@@ -1,0 +1,92 @@
+int recursion_sequence1(int a[],int b[],int start,int end)
+{
+	int middle=(start+end)/2;
+	//设置返回条件
+	if(middle>=end||middle<start)
+		return 0;
+	recursion_sequence1(a,b,start,middle);
+	recursion_sequence1(a,b,middle+1,end);	
+	int m=middle+1,i=start,j=start;
+	//分组比较，当任一组下标超出，结束循环
+	while(j<=middle&&m<=end)
+	{
+		if(a[j]>a[m])
+		{
+			b[i]=a[m];
+			i++;
+			m++;
+		}
+		else
+		{
+			b[i]=a[j];
+			i++;
+			j++;
+		}
+	}
+	//剩下未作比较的值按顺序赋给数组b
+	if(j<=middle)
+	{
+		for(j;j<=middle;j++)
+		{
+			b[i]=a[j];
+			i++;
+		}
+	}
+	else
+	{
+		for(m;m<=end;m++)
+		{
+			b[i]=a[m];
+			i++;
+		}
+	}
+	//把排好序的值重新赋给数组a
+	for(j=start;j<=end;j++)
+		a[j]=b[j];
+}
+int recursion_sequence2(int a[],int b[],int start,int end)
+{
+	int middle=(start+end)/2;
+	//设置返回条件
+	if(middle>=end||middle<start)
+		return 0;
+	recursion_sequence2(a,b,start,middle);
+	recursion_sequence2(a,b,middle+1,end);	
+	int m=middle+1,i=start,j=start;
+	//分组比较，当任一组下标超出，结束循环
+	while(j<=middle&&m<=end)
+	{
+		if(a[j]<a[m])
+		{
+			b[i]=a[m];
+			i++;
+			m++;
+		}
+		else
+		{
+			b[i]=a[j];
+			i++;
+			j++;
+		}
+	}
+	//剩下未作比较的值按顺序赋给数组b
+	if(j<=middle)
+	{
+		for(j;j<=middle;j++)
+		{
+			b[i]=a[j];
+			i++;
+		}
+	}
+	else
+	{
+		for(m;m<=end;m++)
+		{
+			b[i]=a[m];
+			i++;
+		}
+	}
+	//把排好序的值重新赋给数组a
+	for(j=start;j<=end;j++)
+		a[j]=b[j];
+}
