@@ -96,7 +96,7 @@ int sequence_sort1(int a[],int start,int end)//顺序排序法，小→大
 	for(i=start;i<end;i++)
 		for(j=i+1;j<=end;j++)
 		{
-			if(a[i]>a[j])
+			if(a[i]>a[j])   //循环次数：n/2*(n-1).n为保留一位小数
 			{
 				k=a[i];
 				a[i]=a[j];
@@ -124,7 +124,7 @@ int bubble_sort1(int a[],int start,int end)//冒泡排序法，小→大
 	for(i=end;i>start;i--)
 		for(j=start;j<i;j++)
 		{
-			if(a[j]>a[j+1])
+			if(a[j]>a[j+1])//循环次数：n/2*(n-1),N保留一位小数
 			{
 				k=a[j];
 				a[j]=a[j+1];
