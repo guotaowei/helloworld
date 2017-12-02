@@ -153,3 +153,26 @@ int max(int x,int y)//返回最大值
 	else
 		return y;
 }
+void find(int a[],int end,int n)//在小→大数列中，查找指定数字
+{
+	//a[]为数列，start为开始下标，end为结束下标，n为指定数字，middle为中间下标
+	int start=0,middle=-1;
+	//当middle=end时，数列已查找完毕
+	while(middle!=end)
+	{
+		middle=(start+end)/2;
+		if(a[middle]==n)
+		{
+			printf("a[%d]=%d\n",middle,n);
+			return 0;
+		}
+		else
+		{
+			if(a[middle]>n)
+			end=middle;
+			else
+				start=middle+1;
+		}
+	}
+	printf("not find!");
+}
