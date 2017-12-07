@@ -1,3 +1,9 @@
+void array_swap(int a[],int i,int j)//数组交换
+{
+	int m=a[i];
+	a[i]=a[j];
+	a[j]=m;
+}
 /*
 名称 ———————————————————— 归并排序
 类别 ———————————————————— 内部比较排序
@@ -112,29 +118,25 @@ int recursion_sort2(int a[],int b[],int start,int end)//递归排序法，大→
 */
 int sequence_sort1(int a[],int start,int end)//选择排序法，小→大（复杂度：n^2）
 {
-	int i,j,k;
+	int i,j;
 	for(i=start;i<end;i++)
 		for(j=i+1;j<=end;j++)
 		{
 			if(a[i]>a[j])   //循环次数：n/2*(n-1).n为保留一位小数
 			{
-				k=a[i];
-				a[i]=a[j];
-				a[j]=k;
+				array_swap(a,i,j);
 			}
 		}
 }
 void sequence_sort2(int a[],int start,int end)//选择排序法，大→小（复杂度：n^2）
 {
-	int i,j,k;
+	int i,j;
 	for(i=start;i<end;i++)
 		for(j=i+1;j<=end;j++)
 		{
 			if(a[i]<a[j])
 			{
-				k=a[i];
-				a[i]=a[j];
-				a[j]=k;
+				array_swap(a,i,j);
 			}
 		}
 }
@@ -150,29 +152,25 @@ void sequence_sort2(int a[],int start,int end)//选择排序法，大→小（�
 */
 int bubble_sort1(int a[],int start,int end)//冒泡排序法，小→大（复杂度：n^2）
 {
-	int i,j,k;
+	int i,j;
 	for(i=end;i>start;i--)
 		for(j=start;j<i;j++)
 		{
 			if(a[j]>a[j+1])//循环次数：n/2*(n-1),N保留一位小数
 			{
-				k=a[j];
-				a[j]=a[j+1];
-				a[j+1]=k;
+				array_swap(a,j,j+1);
 			}
 		}
 }
 int bubble_sort2(int a[],int start,int end)//冒泡排序法，大→小（复杂度：n^2）
 {
-	int i,j,k;
+	int i,j;
 	for(i=end;i>start;i--)
 		for(j=start;j<i;j++)
 		{
 			if(a[j]<a[j+1])
 			{
-				k=a[j];
-				a[j]=a[j+1];
-				a[j+1]=k;
+				array_swap(a,j,j+1);
 			}
 		}
 }
